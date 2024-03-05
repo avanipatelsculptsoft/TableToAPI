@@ -1,0 +1,81 @@
+openapi: '3.0.1'
+info:
+  title: 'API'
+  version: '2024-03-05T10:00:00Z'
+servers:
+  - url: http://127.0.0.1:8000
+paths:
+  /customer:
+    get:
+      responses:
+        '200':
+          description: '200 response'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCustomerResponse'
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCustomerRequest'
+        required: true
+      responses:
+        '200':
+          description: '200 response'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCustomerResponse'
+  /customer/{customer_id}:
+    get:
+      parameters:
+        - name: 'customer_id'
+          in: 'path'
+          required: true
+          schema:
+            type: 'number'
+      responses:
+        '200':
+          description: '200 response'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCustomerResponse'
+    put:
+      parameters:
+        - name: 'customer_id'
+          in: 'path'
+          required: true
+          schema:
+            type: 'number'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCustomerRequest'
+        required: true
+      responses:
+        '200':
+          description: '200 response'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCustomerResponse'
+components:
+  schemas:
+    GetCustomerResponse:
+      title: 'Get customers response'
+      type: 'object'
+      properties:
+        customer_id:
+          type: 'number'
+        customer_name:
+          type: 'string'
+    CreateCustomerRequest:
+      title: 'Create customers request'
+      type: 'object'
+      properties:
+        customer_name:
+          type: 'string'
