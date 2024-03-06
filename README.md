@@ -31,3 +31,22 @@ Open http://127.0.0.1:8000/docs#/ to see all routes in swagger
 # ref:
 
 https://codevoweb.com/build-a-crud-app-with-fastapi-and-sqlalchemy/
+https://dassum.medium.com/building-rest-apis-using-fastapi-sqlalchemy-uvicorn-8a163ccf3aa1
+
+
+# DB Migration
+
+# Add migration file
+alembic revision -m "Migration user friendly name"
+
+# run new migration files
+alembic upgrade head
+
+# Partial Revision Identifiers
+alembic upgrade <revision_id_1st_3_letters>
+
+# downgrade migration
+alembic downgrade -1
+
+# Reference link for more details
+https://alembic.sqlalchemy.org/en/latest/tutorial.html#the-migration-environment
