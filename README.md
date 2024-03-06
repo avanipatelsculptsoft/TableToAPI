@@ -26,4 +26,8 @@ A python project which will create API CRUD routes based on database tables
 
 # OpenAPI.yml
 
-Update openapi.yml based on your newly added models and check in swagger editor
+Open http://127.0.0.1:8000/docs#/ to see all routes in swagger
+
+# ref:
+
+https://codevoweb.com/build-a-crud-app-with-fastapi-and-sqlalchemy/
