@@ -5,20 +5,20 @@ from sqlalchemy.orm import Session
 from db import get_db
 import models
 from uuid import UUID
-from datetime import datetime
+from datetime import date, time
 
 class FarmInspectionCreate(BaseModel):
-    inspectionDate: datetime
-    inspectionTime: datetime
+    inspectionDate: date
+    inspectionTime: time
     inspectionBy: str
-    caneVarietySampled: str
+    caneVarietySampled: models.CANE_VARIETY_SAMPLED_ENUM
     caneLengthJuiced: float
     juicedProduced: float
     gravityOfJuice: float
     isFertilizerUsed: bool
     evidenceOfPesticideUsed: bool
     evidenceOfUsedFertilizer: str
-    typeodPesticideUsed: str
+    typeOfPesticideUsed: models.PESTICIDE_USED_ENUM
     farmerId: int
     comments: str
 
